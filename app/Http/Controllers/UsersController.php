@@ -83,4 +83,18 @@ class UsersController extends Controller
             'users' => $followers,
         ]);
     }
+    
+    // お気に入りしたツイートを表示する
+    public function favorites($id)
+    {
+        $user = User::findOrFail($id);
+        $user->loadRelationalshipCounts();
+        $favorites = $user->favorites()->paginate(10);
+
+        return view('users.favorites',[
+            'user' => $user,
+            'favorites' => $favorites,
+        ]);
+    }
+    
 }

@@ -15,4 +15,10 @@ class Micropost extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    // ツイートをお気に入りに追加しているユーザを取得
+    public function favorite_user()
+    {
+        return $this->belongsToMany(User::class,'favorite','micropost_id','user_id')->withTimestamps();
+    }
 }

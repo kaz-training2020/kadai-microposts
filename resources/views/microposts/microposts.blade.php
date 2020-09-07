@@ -14,6 +14,10 @@
                         {{-- 投稿内容 --}}
                         <p class="mb-0">{!! nl2br(e($micropost->content)) !!}</p>
                     </div>
+                    <div class="d-inline-block">
+                        @include('user_favorite.favorite_button')
+                    </div>
+                    <div class="mt-2 d-inline-block">
                     <div>
                         @if (Auth::id() == $micropost->user_id)
                             {{-- 投稿削除ボタンのフォーム --}}
