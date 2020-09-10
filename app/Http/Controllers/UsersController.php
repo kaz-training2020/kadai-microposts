@@ -87,7 +87,13 @@ class UsersController extends Controller
     // お気に入りしたツイートを表示する
     public function favorites($id)
     {
+        // idの値でユーザを検索して取得
         $user = User::findOrFail($id);
+ 
+         // 関係するモデルの件数をロード
+        $user->loadRelationshipCounts();
+        
+        // ユーザの一覧を取得
         $favorites = $user->favorites()->paginate(10);
 
         return view('users.favorites',[
