@@ -144,7 +144,7 @@ class User extends Authenticatable
     // お気に入り一覧
     public function favorites()
     {
-        return $this->belongsToMany(Micropost::class,'favorite','user_id','micropost_id')->withTimestamps();    
+        return $this->belongsToMany(Micropost::class,'favorites','user_id','micropost_id')->withTimestamps();    
     }
 
     // すでにお気に入りに追加しているかを調べる
