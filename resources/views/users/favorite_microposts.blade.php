@@ -3,7 +3,7 @@
     @foreach($favorites as $favorite)
         <li class="media">
             <!-- ユーザのメールアドレスをもとにGravatarを取得して表示 -->
-            <img class="mr-2 rounded" src="{{ Gravatar::get($user->email,['size' => 50]) }}" alt="">
+            <img class="mr-2 rounded" src="{{ Gravatar::get($favorite->user->email,['size' => 50]) }}" alt="">
             <div class="media-body mb-2">
                 <div>
                     <p class="mb-1">{!! link_to_route('users.show',$favorite->user->name,['user' => $favorite->user->id]) !!}
